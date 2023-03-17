@@ -14,7 +14,6 @@ import com.mos.site.app.news.init.app.MainActivity
 import com.mos.site.app.news.init.app.R
 import com.mos.site.app.news.init.app.bindingMain
 import com.mos.site.app.news.init.app.dataclass.paramApiItem
-lateinit var mainActivity: MainActivity
 
 class MyMovieAdapter(private val context: Context, private val movieList: MutableList<paramApiItem>):
     RecyclerView.Adapter<MyMovieAdapter.MyViewHolder>() {
@@ -29,10 +28,11 @@ val legue:TextView = itemView.findViewById(R.id.legue)
 val id: ConstraintLayout = itemView.findViewById(R.id.id)
 val time: TextView = itemView.findViewById(R.id.time)
         fun bind(listItem: paramApiItem) {
+            val context = itemView.context
+            val activity : MainActivity = context as MainActivity
 id.setOnClickListener {
-    mainActivity = MainActivity()
-mainActivity.updatefragment(id.id)
-    Toast.makeText(it.context, "Нажал на ${id.id}, констрайн", Toast.LENGTH_SHORT).show()
+
+    activity.updatefragment(id.id)
 }
         }
 

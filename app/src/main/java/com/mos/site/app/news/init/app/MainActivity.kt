@@ -22,14 +22,10 @@ class MainActivity : AppCompatActivity() {
     }
 
  fun updatefragment(id: Int){
-     runOnUiThread{
-         val activity = context as MainActivity
-         (activity as MainActivity).
-         activity.supportFragmentManager
-             .beginTransaction()
-             .replace(bindingMain.container.id, infomatch(id))
-             .commit()
-     }
-
+     val fragmentManager = supportFragmentManager
+     val transaction = fragmentManager.beginTransaction()
+     transaction.replace(R.id.container,infomatch(id))
+     //transaction.addToBackStack(null)
+     transaction.commit()
 }
 }
